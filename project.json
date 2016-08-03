@@ -1,0 +1,17 @@
+
+{
+  "name": "lambda-github-bot",
+  "description": "A Github bot hosted as a lambda function",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::851965509610:role/lambda-github-bot_lambda_function",
+  "environment": {
+    "GITHUB_TOKEN": "bd08ee3e9c7c600b1f067d22abf3030715b107da"
+  },
+  "hooks": {
+    "build": "../../node_modules/.bin/webpack --config ../../webpack.config.js",
+    "clean": "rm -fr lib"
+  },
+  "runtime": "nodejs4.3",
+  "handler": "lib.default"
+}
