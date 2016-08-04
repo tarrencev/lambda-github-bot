@@ -6,7 +6,7 @@
   "timeout": 5,
   "role": "arn:aws:iam::851965509610:role/lambda-github-bot_lambda_function",
   "environment": {
-    "GITHUB_TOKEN": "bd08ee3e9c7c600b1f067d22abf3030715b107da"
+    "GITHUB_TOKEN": "ADD GITHUB TOKEN HERE"
   },
   "hooks": {
     "build": "../../node_modules/.bin/webpack --config ../../webpack.config.js",

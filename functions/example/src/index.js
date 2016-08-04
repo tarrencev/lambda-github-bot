@@ -3,9 +3,16 @@ import λ from 'apex.js';
 import github from 'octonode';
 
 export default λ(event => {
-
     const message = event.Records[0].Sns.Message;
-    // console.log('From SNS:', message);
+    const { repository } = message;
+    const { owner } = repository;
+    const { name } = owner;
+
+    if (name !== 'tarrencev') {
+        return Promise.reject('Invalid repository');
+    }
+
+    console.log('From SNS:', message);
     const ghClient = github.client(process.env.GITHUB_TOKEN);
     return new Promise((resolve) => {
         ghClient.get('/user', {}, function (err, status, body, headers) {
@@ -13,4 +20,4 @@ export default λ(event => {
             resolve(body); //json object
         });
     });
-})
+});
